@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيم استور</title>
+    <meta name="description" content="تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية">
+    <link rel="icon" href="img/IMG_5579.JPG">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ملف CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/details.css">
+    <style>
+        .swiper-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.swiper-slide {
+  flex: 1 0 20%;
+  max-width: 250px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .swiper-slide {
+    flex: 1 0 30%; 
+  }
+  .swiper-wrapper {
+  justify-content: center;
+}
+}
+
+@media (max-width: 700px) {
+  .swiper-slide {
+    flex: 1 0 45%;
+    max-width: 180px;
+  }
+  .swiper-wrapper {
+  justify-content: center;
+}
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="loader">
+        <i class="fab fa-apple icon"></i>
+      </div>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+        <div class="items_in_cart" id="cart_items"></div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">تسوق المزيد</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/IMG_5579.JPG" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="all-categories">كل الاقسام</option>
+                            <option value="iphone-16">ايفون 16 بانواعه</option>
+                            <option value="iphone-15">ايفون 15 بانواعه</option>
+                            <option value="iphone-14">ايفون 14 بانواعه</option>
+                            <option value="iphone-13">ايفون 13 بانواعه</option>
+                            <option value="iphone-12">ايفون 12 بانواعه</option>
+                            <option value="apple-watches">ساعات ابل</option>
+                            <option value="audio-devices">اجهزه صوت و سماعات</option>
+                            <option value="playstation">أجهزة بلاي ستيشن</option>
+                            <option value="laptops-monitors">لابتوبات وشاشات</option>
+                            <option value="ipad">ايباد</option>
+                            <option value="power-banks-cables">بطاريات متنقلة وكيابل</option>
+                            <option value="video-games">ألعاب الفيديو</option>
+                        </select>                        
+                    </div>
+
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتجات">
+
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="header_icons">
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+
+                    <div class="category_nav">
+
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الأقسام</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <div class="category_nav_list">
+                            <a href="iphone16.html">ايفون 16 بانواعه</a>
+                            <a href="iphon15.html">ايفون 15 بانواعه</a>
+                            <a href="iphone14.html">ايفون 14 بانواعه</a>
+                            <a href="iphone13.html">ايفون 13 بانواعه</a>
+                            <a href="iphone12.html">ايفون 12 بانواعه</a>
+                            <a href="watch.html">ساعات ابل</a>
+                            <a href="AudioDevices.html">اجهزه صوت و سماعات</a>
+                            <a href="PlayStation.html">أجهزة بلاي ستيشن</a>
+                            <a href="laptop.html">لابتوبات وشاشات</a>
+                            <a href="iPad.html">ايباد</a>
+                            <a href="Portablebattery.html">بطاريات متنقلة وكيابل</a>
+                            <a href="VideoGames.html">ألعاب الفيديو</a>
+                        </div>
+                    </div>
+
+                    <ul class="nav_links">
+
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+
+                        <li class="active"><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#foot">من نحن</a></li>
+                        <li><a href="#foot">اتصل بنا</a></li>
+                        <li><a href="iphone16.html">ايفون 16 بانواعه</a></li>
+                        <li><a href="iphon15.html">ايفون 15 بانواعه</a></li>
+                        <li><a href="watch.html">ساعات ابل</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="product-details-container">
+        <div class="product-image">
+            <img id="product-img" src="" alt="منتج">
+        </div>
+        <div class="product-info">
+            <h1 id="product-title" class="product-title"></h1>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="price">
+                <p id="product-price"><span>4100.00 ر.س</span></p>
+            </div>
+            <div class="description">
+                <p>هذا المنتج يأتي بأحدث التقنيات من شركة آبل، يتميز بجودة عالية وتصميم عصري.</p>
+            </div>
+            <div class="actions">
+                <button class="btn btn-cart"><i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة</button>
+                <button class="btn btn-favorite"><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <footer id="foot">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/IMG_5579.JPG" alt="شعار الموقع">
+                <p>تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية</p>
+    
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="iphone16.html"><i class="fa-solid fa-caret-right"></i> ايفون 16 بانواعه</a>
+                    <a href="iphon15.html"><i class="fa-solid fa-caret-right"></i> ايفون 15 بانواعه</a>
+                    <a href="iphone14.html"><i class="fa-solid fa-caret-right"></i> ايفون 14 بانواعه</a>
+                    <a href="iphone13.html"><i class="fa-solid fa-caret-right"></i> ايفون 13 بانواعه</a>
+                    <a href="iphone12.html"><i class="fa-solid fa-caret-right"></i> ايفون 12 بانواعه</a>
+                    <a href="watch.html"><i class="fa-solid fa-caret-right"></i> ساعات ابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="AudioDevices.html"><i class="fa-solid fa-caret-right"></i> اجهزه صوت و سماعات</a>
+                    <a href="PlayStation.html"><i class="fa-solid fa-caret-right"></i> جهزة بلاي ستيشن</a>
+                    <a href="iPad.html"><i class="fa-solid fa-caret-right"></i> ايباد</a>
+                    <a href="laptop.html"><i class="fa-solid fa-caret-right"></i> لابتوبات وشاشات</a>
+                    <a href="VideoGames.html"><i class="fa-solid fa-caret-right"></i> ألعاب الفيديو</a>
+                    <a href="Portablebattery.html"><i class="fa-solid fa-caret-right"></i> بطاريات متنقلة وكيابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>خدماتنا</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> مركز الدعم</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> سياسة الخصوصية</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> المساعدة</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>تيم ستور </span> جميع الحقوق محفوظة</p>
+    
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="طرق الدفع">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+966552538392" target="_blank" aria-label="Chat with us on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+          <span>محادثة واتساب</span>
+        </a>
+      </div>
+
+       <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+        window.onload = function() {
+            const productName = localStorage.getItem('productName');
+            const productImg = localStorage.getItem('productImg');
+            const productPrice = localStorage.getItem('productPrice');
+            if (productName && productImg && productPrice) {
+                document.getElementById('product-title').textContent = productName;
+                document.getElementById('product-img').src = productImg;
+                document.getElementById('product-price').textContent = productPrice;
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'حدث خطأ',
+                    text: 'حدث خطأ في تحميل بيانات المنتج.',
+                    confirmButtonText: 'حسناً',
+                }).then(() => {
+                    window.location.href = 'index.html';  
+                });
+            }
+        };
+  </script>
+
+      <!-- File JS -->
+     
+      <!-- <script src="JS/swiper.js"></script> -->
+      <script src="JS/items_home.js"></script>
+      <script src="JS/main.js"></script>
+</body>
+</html>

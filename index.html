@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيم استور</title>
+    <meta name="description" content="تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية">
+    <link rel="icon" href="img/IMG_5579.JPG">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ملف CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <div class="loader">
+        <i class="fab fa-apple icon"></i>
+      </div>
+      
+      
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+        <div class="items_in_cart" id="cart_items"></div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">تسوق المزيد</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/IMG_5579.JPG" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="all-categories">كل الاقسام</option>
+                            <option value="iphone-16">ايفون 16 بانواعه</option>
+                            <option value="iphone-15">ايفون 15 بانواعه</option>
+                            <option value="iphone-14">ايفون 14 بانواعه</option>
+                            <option value="iphone-13">ايفون 13 بانواعه</option>
+                            <option value="iphone-12">ايفون 12 بانواعه</option>
+                            <option value="apple-watches">ساعات ابل</option>
+                            <option value="audio-devices">اجهزه صوت و سماعات</option>
+                            <option value="playstation">أجهزة بلاي ستيشن</option>
+                            <option value="laptops-monitors">لابتوبات وشاشات</option>
+                            <option value="ipad">ايباد</option>
+                            <option value="power-banks-cables">بطاريات متنقلة وكيابل</option>
+                            <option value="video-games">ألعاب الفيديو</option>
+                        </select>                        
+                    </div>
+
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتجات">
+
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="header_icons">
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+
+                    <div class="category_nav">
+
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الأقسام</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <div class="category_nav_list">
+                            <a href="iphone16.html">ايفون 16 بانواعه</a>
+                            <a href="iphon15.html">ايفون 15 بانواعه</a>
+                            <a href="iphone14.html">ايفون 14 بانواعه</a>
+                            <a href="iphone13.html">ايفون 13 بانواعه</a>
+                            <a href="iphone12.html">ايفون 12 بانواعه</a>
+                            <a href="watch.html">ساعات ابل</a>
+                            <a href="AudioDevices.html">اجهزه صوت و سماعات</a>
+                            <a href="PlayStation.html">أجهزة بلاي ستيشن</a>
+                            <a href="laptop.html">لابتوبات وشاشات</a>
+                            <a href="iPad.html">ايباد</a>
+                            <a href="Portablebattery.html">بطاريات متنقلة وكيابل</a>
+                            <a href="VideoGames.html">ألعاب الفيديو</a>
+                        </div>
+                    </div>
+
+                    <ul class="nav_links">
+
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+
+                        <li class="active"><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#foot">من نحن</a></li>
+                        <li><a href="#foot">اتصل بنا</a></li>
+                        <li><a href="iphone16.html">ايفون 16 بانواعه</a></li>
+                        <li><a href="iphon15.html">ايفون 15 بانواعه</a></li>
+                        <li><a href="watch.html">ساعات ابل</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="container">
+    
+            <!-- السلايدر -->
+            <div class="slide-swp mySwiper">
+    
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#"><img src="img/15.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img src="img/15 pro max[1].png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img src="img/15 pro[1].png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img src="img/٠٠٠٠٠٠0.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+    
+            </div>
+    
+            <div class="banner_2">
+                <a href="#"><img src="img/02e2d8de-1883-4084-849b-6d42e6f3ea01.jpg" alt=""></a>
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="banners_4">
+        <div class="container">
+    
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+    
+                <img src="img/banner3_1.png" alt="">
+                <div class="text">
+                    <h5>خصومات كبيرة</h5>
+                    <h5>عروض مميزة</h5>
+    
+                    <div class="sale">
+                        <p>حتى <br> نسبة</p>
+                        <span>70%</span>
+                    </div>
+    
+                    <h6>تسوق الآن</h6>
+    
+                </div>
+            </div>
+    
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+                <img src="img/products/0d0ea9b4-8e7a-4407-8615-83624ff295cd.jpg" alt="">
+                <div class="text">
+                    <h5>خصومات كبيرة</h5>
+                    <h5>عروض مميزة</h5>
+                    <div class="sale">
+                        <p>حتى <br> نسبة</p>
+                        <span>70%</span>
+                    </div>
+    
+                    <h6>تسوق الآن</h6>
+    
+                </div>
+            </div>
+    
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+    
+                <img src="img/banner3_3.png" alt="">
+                <div class="text">
+                    <h5>خصومات كبيرة</h5>
+                    <h5>عروض مميزة</h5>
+                    <div class="sale">
+                        <p>حتى <br> نسبة</p>
+                        <span>70%</span>
+                    </div>
+    
+                    <h6>تسوق الآن</h6>
+    
+                </div>
+            </div>
+    
+            <div class="box">
+                <a href="#" class="link_btn"></a>
+    
+                <img src="img/banner3_4.png" alt="">
+                <div class="text">
+                    <h5>خصومات كبيرة</h5>
+                    <h5>عروض مميزة</h5>
+                    <div class="sale">
+                        <p>حتى <br> نسبة</p>
+                        <span>70%</span>
+    
+                    </div>
+                    <h6>تسوق الآن</h6>
+                </div>
+            </div>
+    
+        </div>
+    </div> 
+    <div class="slider_products slide">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide">
+                    <h2><i class="fa-solid fa-tags"></i> ايفون 16 برو ماكس</h2>
+                </div>
+    
+                <div class="products swiper-wrapper" id="swiper_elctronics">
+                    <!-- المنتج الأول -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/e430fc03-4ffd-475c-b454-ca2387f0878a.jpg" alt="صورة المنتج 1"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو ماكس 256 جيجابايت تيتانيوم طبيعي 5‎Gآبل
+                        </a></p>
+                        <div class="price">
+                            <p><span>5500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+    
+                    <!-- المنتج الثاني -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/d13cdece-9883-42cd-8b44-f550d8665ca2.jpg" alt="صورة المنتج 2"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو ماكس 256 جيجابايت تيتانيوم صحراوي 5‎Gآبل آيه 18 برو</a></p>
+                        <div class="price">
+                            <p><span>5500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="2">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+    
+                    <!-- المنتج الثالث -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/4c7f6805-0385-41af-b19d-1be614ed514f.jpg" alt="صورة المنتج 3"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو ماكس 256 جيجابايت تيتانيوم أسود 5‎Gآبل آيه 18 برو
+                        </a></p>
+                        <div class="price">
+                            <p><span>5500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="3">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+    
+                    <!-- المنتج الرابع -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/d27fa401-4622-4ea3-a1dc-0af8af21e204.jpg" alt="صورة المنتج 4"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو ماكس 256 جيجا بايت تيتانيوم أبيض 5‎Gآبل آيه 18 برو
+                        </a></p>
+                        <div class="price">
+                            <p><span>5500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="4">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+    
+                    <!-- المنتج الخامس -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/92141e51-848a-4472-96c4-269e77c1dd4f.jpg" alt="صورة المنتج 5"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو ماكس 512 جيجابايت تيتانيوم طبيعي 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>6500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="5">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_button">
+                    <a href="iphone16.html" class="btn_more">للمزيد</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="slider_products slide">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide">
+                    <h2><i class="fa-solid fa-tags"></i>ايفون 16 برو</h2>
+                </div>
+                
+                <div class="products swiper-wrapper" id="swiper_appliances">
+                    <!-- المنتج الثاني -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/0d0ea9b4-8e7a-4407-8615-83624ff295cd.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو 256 جيجابايت تيتانيوم صحراوي 5‎G</a></p>
+                        <div class="price">
+                            <p><span>5100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/4da4b692-f5a1-4ed9-bc19-24be14b7b18d.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو 256 جيجابايت تيتانيوم أسود 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>5100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الثالث -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/e8c6fb29-7ec4-4d10-8044-80d4a73cbb2a.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو 256 جيجابايت تيتانيوم طبيعي 5‎G
+                        </a></p>
+                        <div class="price">
+                            <p><span>5100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="2">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الرابع -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/36a9f9bd-3597-46e0-b0d1-d6aa78e34092.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو 256 جيجا بايت تيتانيوم أبيض 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>5100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="3">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الخامس -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/925ba1e6-7d55-4111-9026-76a49c4c3bd1.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 برو 128 جيجابايت تيتانيوم صحراوي 5‎G
+                        </a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="4">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_button">
+                    <a href="iphone16.html" class="btn_more">للمزيد</a>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <div class="slider_products slide">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide">
+                    <h2><i class="fa-solid fa-tags"></i>ايفون 16 بلس</h2>
+                </div>
+                
+                <div class="products swiper-wrapper">
+                    <!-- المنتج الثاني -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/cdd7a886-9408-46c7-ab16-c09e99d96fd3.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 بلس 256 جيجابايت اسود 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/9ac03223-6dba-4ee8-8f01-f5c7ea196a87.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 بلس 256 جيجابايت أزرق نيلي 5‎Gآبل
+                        </a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الثالث -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/13db7563-fcc7-44b1-8016-ec8987fa775f.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 بلس 256 جيجابايت ابيض 5‎Gآبل
+                        </a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="2">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الرابع -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/80ef3e08-7422-4584-a775-0e9d9603f868.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 بلس 256 جيجابايت وردي 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="3">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الخامس -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/0f0c6278-b2bc-425c-8bb7-e5ef79ab6cef.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 بلس 256 جيجابايت تركوازي 5‎Gآبل
+                        </a></p>
+                        <div class="price">
+                            <p><span>4500.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="4">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_button">
+                    <a href="iphone16.html" class="btn_more">للمزيد</a>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    <div class="slider_products slide">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide">
+                    <h2><i class="fa-solid fa-tags"></i>ايفون 16 عادي</h2>
+                </div>
+                
+                <div class="products swiper-wrapper">
+                    <!-- المنتج الثاني -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/d79909cb-8530-45ce-b0ec-dd77046f9ff6.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 256 جيجابايت اسود 5‎G</a></p>
+                        <div class="price">
+                            <p><span>4100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/21e16a22-2899-4d2c-b5df-55a9aa580433.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 256 جيجابايت ابيض 5‎G
+                        </a></p>
+                        <div class="price">
+                            <p><span>4100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="1">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الثالث -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/28762bbb-05d8-46f2-9a30-e35f9df9bb77.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 256 جيجابايت وردي
+                        </a></p>
+                        <div class="price">
+                            <p><span>4100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="2">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الرابع -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/b6dfc6fc-a49f-4899-b7a7-f361900e2c89.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 256 جيجابايت أزرق نيلي 5‎Gآبل</a></p>
+                        <div class="price">
+                            <p><span>4100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="3">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                    <!-- المنتج الخامس -->
+                    <div class="swiper-slide product">
+                        <div class="img_product">
+                            <a href="#"><img src="img/products/0f0c6278-b2bc-425c-8bb7-e5ef79ab6cef.jpg" alt=""></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="#">ابل آيفون 16 256 جيجابايت تركوازي 5‎Gآبل
+                        </a></p>
+                        <div class="price">
+                            <p><span>4100.00 ر.س</span></p>
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="4">
+                                <i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more_button">
+                    <a href="iphone16.html" class="btn_more">للمزيد</a>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    
+    <footer id="foot">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/IMG_5579.JPG" alt="شعار الموقع">
+                <p>تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية</p>
+    
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="iphone16.html"><i class="fa-solid fa-caret-right"></i> ايفون 16 بانواعه</a>
+                    <a href="iphon15.html"><i class="fa-solid fa-caret-right"></i> ايفون 15 بانواعه</a>
+                    <a href="iphone14.html"><i class="fa-solid fa-caret-right"></i> ايفون 14 بانواعه</a>
+                    <a href="iphone13.html"><i class="fa-solid fa-caret-right"></i> ايفون 13 بانواعه</a>
+                    <a href="iphone12.html"><i class="fa-solid fa-caret-right"></i> ايفون 12 بانواعه</a>
+                    <a href="watch.html"><i class="fa-solid fa-caret-right"></i> ساعات ابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="AudioDevices.html"><i class="fa-solid fa-caret-right"></i> اجهزه صوت و سماعات</a>
+                    <a href="PlayStation.html"><i class="fa-solid fa-caret-right"></i> جهزة بلاي ستيشن</a>
+                    <a href="iPad.html"><i class="fa-solid fa-caret-right"></i> ايباد</a>
+                    <a href="laptop.html"><i class="fa-solid fa-caret-right"></i> لابتوبات وشاشات</a>
+                    <a href="VideoGames.html"><i class="fa-solid fa-caret-right"></i> ألعاب الفيديو</a>
+                    <a href="Portablebattery.html"><i class="fa-solid fa-caret-right"></i> بطاريات متنقلة وكيابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>خدماتنا</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> مركز الدعم</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> سياسة الخصوصية</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> المساعدة</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>تيم ستور </span> جميع الحقوق محفوظة</p>
+    
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="طرق الدفع">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+966552538392" target="_blank" aria-label="Chat with us on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+          <span>محادثة واتساب</span>
+        </a>
+      </div>
+      
+
+       <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <!-- File JS -->
+     
+      <script src="JS/swiper.js"></script>
+      <script src="JS/items_home.js"></script>
+      <script src="JS/main.js"></script>
+</body>
+</html>
