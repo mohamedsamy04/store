@@ -567,6 +567,7 @@ header .bottom_header .nav_links li.active a{
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+    border-radius: 10px;
 }
 .product .icons .icon_product:hover{
     background: var(--main_color);
@@ -587,6 +588,7 @@ header .bottom_header .nav_links li.active a{
     cursor: pointer;
     transition: 0.3s;
     border: 1px solid var(--main_color);
+    border-radius: 10px;
 }
 .product .icons  .btn_add_cart i {
     color: var(--white_color);

@@ -1,0 +1,130 @@
+.product-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+.product-info {
+    flex: 1;
+    margin: 20px;
+    text-align: right;
+}
+
+.product-title {
+    font-size: 28px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stars i {
+    color: var(--main_color);
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price p {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--main_color);
+    margin: 10px 0;
+}
+
+.description p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.actions .btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.actions .btn-cart {
+    background: var(--main_color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white_color);
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid var(--main_color);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.actions .btn-cart:hover {
+    scale: 1.05;
+    background: #f47600;
+}
+
+.actions .btn-favorite {
+    color: var(--main_color);
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid var(--main_color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.actions .btn-favorite:hover {
+    background: var(--main_color);
+    color: var(--white_color);
+    scale: 1.05;
+}
+
+@media (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-info {
+        margin: 20px 0;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
