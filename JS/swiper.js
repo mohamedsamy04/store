@@ -11,13 +11,11 @@ var swiper = new Swiper(".slide-swp", {
   });
 
 
-  /* swiper slide products */
-
   var swiper = new Swiper(".slide_product", {
     slidesPerView: 5,
     spaceBetween:20,
     autoplay:{
-        delay:1500,
+        delay:2500,
     },
     navigation:{
         nextEl:".swiper-button-next",

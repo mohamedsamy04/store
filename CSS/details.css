@@ -128,3 +128,11 @@
         justify-content: center;
     }
 }
+.actions .active{
+    color: var(--color_heading);
+    background: transparent;
+    pointer-events: none;
+}
+.actions .active i{
+    color: var(--main_color);
+}

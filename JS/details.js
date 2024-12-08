@@ -1,48 +1,63 @@
+window.onload = function() {
+    const productName = localStorage.getItem('productName');
+    const productImg = localStorage.getItem('productImg');
+    const productPrice = localStorage.getItem('productPrice');
+    const productId = localStorage.getItem('productId'); 
+
+    if (productName && productImg && productPrice && productId) {
+        document.getElementById('product-title').textContent = productName;
+        document.getElementById('product-img').src = productImg;
+        document.getElementById('product-price').textContent = productPrice;
+
+        const cartButton = document.querySelector('.btn-cart');
+        cartButton.setAttribute('data-id', productId);
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'حدث خطأ',
+            text: 'حدث خطأ في تحميل بيانات المنتج.',
+            confirmButtonText: 'حسناً',
+        }).then(() => {
+            window.location.href = 'index.html'; 
+        });
+    }
+};
+
 window.addEventListener("load", function () {
-    setTimeout(function () {
+    setTimeout(() => {
         document.querySelector(".loader").style.display = "none";
     }, 800);
 
     const addedItems = JSON.parse(localStorage.getItem("addedItems")) || [];
+
     addedItems.forEach(productId => {
-        const button = document.querySelector(`.btn_add_cart[data-id="${productId}"]`);
+        const button = document.querySelector(`.btn.btn-cart[data-id="${productId}"]`);
         if (button) {
             button.classList.add("active");
             button.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> تمت الإضافة`;
         }
     });
 
-    updateCart();
+    updateCart(); // تحديث السلة
 });
 
-let category_nav_list = document.querySelector(".category_nav_list");
-
-function Open_Categ_list() {
-    category_nav_list.classList.toggle("active");
-}
-
-let nav_links = document.querySelector(".nav_links");
-
-function open_Menu() {
-    nav_links.classList.toggle("active");
-}
-
-var cart = document.querySelector(".cart");
-
-function open_close_cart() {
-    cart.classList.toggle("active");
-}
-
-const addToCartButtons = document.querySelectorAll(".btn_add_cart");
-
-addToCartButtons.forEach(button => {
-    button.addEventListener("click", function (event) {
-        const product = this.closest(".product");
-
+document.querySelectorAll(".btn.btn-cart").forEach(button => {
+    button.addEventListener("click", function () {
         const productId = this.getAttribute("data-id");
-        const productName = product.querySelector(".name_product a").textContent;
-        const productImg = product.querySelector(".img_product img").src;
-        const productPrice = parseFloat(product.querySelector(".price span").textContent);
+
+        // تحقق من قيمة data-id
+        if (productId) {
+            console.log("تم استلام data-id:", productId); // ستظهر في الـ console
+        } else {
+            console.log("لم يتم استلام data-id");
+        }
+
+        const productName = document.getElementById("product-title").textContent;
+        const productImg = document.getElementById("product-img").src;
+        const productPrice = parseFloat(
+            document.getElementById("product-price").textContent.replace(' ر.س', '').trim()
+        );
 
         const selectedProduct = {
             id: productId,
@@ -54,14 +69,14 @@ addToCartButtons.forEach(button => {
 
         addToCart(selectedProduct);
 
+        // تحديث السلة المخزنة في localStorage
         const addedItems = JSON.parse(localStorage.getItem("addedItems")) || [];
         if (!addedItems.includes(productId)) {
             addedItems.push(productId);
             localStorage.setItem("addedItems", JSON.stringify(addedItems));
         }
 
-        updateButtonsState(productId);
-        this.classList.add('active');
+        this.classList.add("active");
         this.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> تمت الإضافة`;
     });
 });
@@ -101,19 +116,21 @@ function updateCart() {
                 <img src="${item.img}" alt="">
                 <div class="content">
                     <h4>${item.name}</h4>
-                    <p class="price_cart">$${total_Price_item.toFixed(2)}</p>
+                    <p class="price_cart">${total_Price_item.toFixed(2)} ر.س</p>
                     <div class="quantity_control">
                         <button class="decrease_quantity" data-index="${index}">-</button>
                         <span class="quantity">${item.quantity}</span>
-                        <button class="Increase_quantity" data-index="${index}">+</button>
+                        <button class="increase_quantity" data-index="${index}">+</button>
                     </div>
                 </div>
-                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="delete_item" data-index="${index}">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
             </div>
         `;
     });
 
-    document.querySelector(".price_cart_toral").innerHTML = `$${total_Price.toFixed(2)}`;
+    document.querySelector(".price_cart_toral").innerHTML = `${total_Price.toFixed(2)} ر.س`;
     document.querySelector(".Count_item_cart").innerHTML = total_count;
     document.querySelector(".count_item_header").innerHTML = total_count;
 
@@ -121,25 +138,21 @@ function updateCart() {
 }
 
 function setupCartButtons() {
-    const increaseButtons = document.querySelectorAll(".Increase_quantity");
-    const decreaseButtons = document.querySelectorAll(".decrease_quantity");
-    const deleteButtons = document.querySelectorAll(".delete_item");
-
-    increaseButtons.forEach(button => {
+    document.querySelectorAll(".increase_quantity").forEach(button => {
         button.addEventListener("click", function () {
             const itemIndex = this.getAttribute("data-index");
             increaseQuantity(itemIndex);
         });
     });
 
-    decreaseButtons.forEach(button => {
+    document.querySelectorAll(".decrease_quantity").forEach(button => {
         button.addEventListener("click", function () {
             const itemIndex = this.getAttribute("data-index");
             decreaseQuantity(itemIndex);
         });
     });
 
-    deleteButtons.forEach(button => {
+    document.querySelectorAll(".delete_item").forEach(button => {
         button.addEventListener("click", function () {
             const itemIndex = this.getAttribute("data-index");
             removeFromCart(itemIndex);
@@ -180,32 +193,10 @@ function removeFromCart(index) {
 }
 
 function updateButtonsState(productId) {
-    const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`);
-    allMatchingButtons.forEach(button => {
+    document.querySelectorAll(`.btn.btn-cart[data-id="${productId}"]`).forEach(button => {
         button.classList.remove("active");
         button.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> أضف إلى السلة`;
     });
 }
 
 updateCart();
-
-
-document.querySelectorAll('.product-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const product = this.closest('.product');  
-
-        const productName = product.querySelector('.name_product a').textContent;
-        const productImg = product.querySelector('.img_product img').src;
-        const productPrice = product.querySelector('.price span').textContent;
-        
-        const productId = product.querySelector('.btn_add_cart').getAttribute('data-id');
-
-        localStorage.setItem('productName', productName);
-        localStorage.setItem('productImg', productImg);
-        localStorage.setItem('productPrice', productPrice);
-        localStorage.setItem('productId', productId); 
-    });
-});
-
-
-
