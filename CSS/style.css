@@ -1282,11 +1282,10 @@ color: var(--color_heading);
     transition: 0.3s ease-in-out;
 }
 .checkout .ordersummary .button_div button:hover{
-    background: transparent;
-    color: var(--main_color);
+    scale: 1.005;
+    background: #f47600;
 }
 
-/* Make the entire section centered on large screens */
 .checkout .container {
     display: flex;
     align-items: center;
