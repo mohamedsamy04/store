@@ -208,4 +208,6 @@ document.querySelectorAll('.product-link').forEach(link => {
 });
 
 
-console.log(JSON.stringify(localStorage).length / 1024 / 1024 + " MB");
+document.querySelector("#checkout_button").addEventListener("click", function (event) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+});

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيم استور</title>
+    <meta name="description" content="تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية">
+    <link rel="icon" href="img/IMG_5579.JPG">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ملف CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <div class="loader">
+        <i class="fab fa-apple icon"></i>
+      </div>
+      
+      
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+        <div class="items_in_cart" id="cart_items"></div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">تسوق المزيد</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/IMG_5579.JPG" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="all-categories">كل الاقسام</option>
+                            <option value="iphone-16">ايفون 16 بانواعه</option>
+                            <option value="iphone-15">ايفون 15 بانواعه</option>
+                            <option value="iphone-14">ايفون 14 بانواعه</option>
+                            <option value="iphone-13">ايفون 13 بانواعه</option>
+                            <option value="iphone-12">ايفون 12 بانواعه</option>
+                            <option value="apple-watches">ساعات ابل</option>
+                            <option value="audio-devices">اجهزه صوت و سماعات</option>
+                            <option value="playstation">أجهزة بلاي ستيشن</option>
+                            <option value="laptops-monitors">لابتوبات وشاشات</option>
+                            <option value="ipad">ايباد</option>
+                            <option value="power-banks-cables">بطاريات متنقلة وكيابل</option>
+                            <option value="video-games">ألعاب الفيديو</option>
+                        </select>                        
+                    </div>
+
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتجات">
+
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="header_icons">
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+
+                    <div class="category_nav"><div onclick="Open_Categ_list()" class="category_btn">
+                        <i class="fa-solid fa-bars"></i>
+                        <p>تصفح الأقسام</p>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+
+                    <div class="category_nav_list">
+                        <a href="iphone16.html">ايفون 16 بانواعه</a>
+                        <a href="iphon15.html">ايفون 15 بانواعه</a>
+                        <a href="iphone14.html">ايفون 14 بانواعه</a>
+                        <a href="iphone13.html">ايفون 13 بانواعه</a>
+                        <a href="iphone12.html">ايفون 12 بانواعه</a>
+                        <a href="watch.html">ساعات ابل</a>
+                        <a href="AudioDevices.html">اجهزه صوت و سماعات</a>
+                        <a href="PlayStation.html">أجهزة بلاي ستيشن</a>
+                        <a href="laptop.html">لابتوبات وشاشات</a>
+                        <a href="iPad.html">ايباد</a>
+                        <a href="Portablebattery.html">بطاريات متنقلة وكيابل</a>
+                        <a href="VideoGames.html">ألعاب الفيديو</a>
+                    </div>
+                </div>
+
+                <ul class="nav_links">
+
+                    <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+
+                    <li class="active"><a href="index.html">الرئيسية</a></li>
+                    <li><a href="#foot">من نحن</a></li>
+                    <li><a href="#foot">اتصل بنا</a></li>
+                    <li><a href="iphone16.html">ايفون 16 بانواعه</a></li>
+                    <li><a href="iphon15.html">ايفون 15 بانواعه</a></li>
+                    <li><a href="watch.html">ساعات ابل</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<section class="checkout" dir="rtl">
+<form action="">
+    <div class="container">
+        <div class="ordersummary">
+            <h1>ملخص الطلب</h1>
+            <div class="items">
+            </div>
+            <div class="bottom_summary">
+                <div class="shop_table">
+                    <p>الإجمالي :</p>
+                    <span class="total_checkout">345.00$</span>
+                </div>
+            
+                <div class="user_inputs">
+                    <div class="input_group">
+                        <label for="full_name">الاسم الكامل:</label>
+                        <input type="text" id="full_name" name="full_name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="whatsapp_number">رقم الواتساب:</label>
+                        <input type="text" id="whatsapp_number" name="whatsapp_number" placeholder="أدخل رقم الواتساب الخاص بك" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="full_address">العنوان الكامل:</label>
+                        <input type="text" id="full_address" name="full_address" placeholder="أدخل عنوانك الكامل" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="initial_payment">المقدم:</label>
+                        <input type="number" id="initial_payment" name="initial_payment" placeholder="أدخل مبلغ المقدم" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="installments">التقسيط (بالشهور):</label>
+                        <select id="installments" name="installments" required>
+                            <option value="" disabled selected>اختر مدة التقسيط</option>
+                            <option value="1">شهر واحد</option>
+                            <option value="2">شهرين</option>
+                            <option value="3">3 شهور</option>
+                            <option value="4">4 شهور</option>
+                            <option value="5">5 شهور</option>
+                            <option value="6">6 شهور</option>
+                            <option value="7">7 شهور</option>
+                            <option value="8">8 شهور</option>
+                            <option value="9">9 شهور</option>
+                            <option value="10">10 شهور</option>
+                            <option value="11">11 شهراً</option>
+                            <option value="12">12 شهراً</option>
+                        </select>
+                    </div>
+                    <div class="input_group">
+                        <label for="monthly_payment">القسط الشهري:</label>
+                        <input type="number" id="monthly_payment" name="monthly_payment" placeholder="أدخل مبلغ القسط الشهري" required>
+                    </div>
+                </div>
+                
+            
+                <div class="button_div">
+                    <button type="submit">إتمام الطلب</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="input_info">
+            
+        </div>
+    </div>
+</form>
+</section>
+<script>
+    window.addEventListener("load", function () {
+    const checkoutItems = JSON.parse(localStorage.getItem("cart")) || []; 
+
+    const itemsContainer = document.getElementById("checkout_items");
+    let total_Price = 0;
+
+    checkoutItems.forEach((item, index) => {
+        let total_Price_item = item.price * item.quantity;
+        total_Price += total_Price_item;
+
+        itemsContainer.innerHTML += `
+            <div class="item_checkout">
+                <img src="${item.img}" alt="">
+                <div class="content">
+                    <h4>${item.name}</h4>
+                    <p class="price_checkout">ر.س ${total_Price_item.toFixed(2)}</p>
+                    <div class="quantity_control">
+                        <button class="decrease_quantity" data-index="${index}">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="increase_quantity" data-index="${index}">+</button>
+                    </div>
+                </div>
+                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        `;
+    });
+
+    document.querySelector(".items_total").innerHTML = `ر.س ${total_Price.toFixed(2)}`;
+
+    setupCheckoutButtons();
+});
+
+function setupCheckoutButtons() {
+    const increaseButtons = document.querySelectorAll(".increase_quantity");
+    const decreaseButtons = document.querySelectorAll(".decrease_quantity");
+    const deleteButtons = document.querySelectorAll(".delete_item");
+
+    increaseButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const itemIndex = this.getAttribute("data-index");
+            increaseQuantity(itemIndex);
+        });
+    });
+
+    decreaseButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const itemIndex = this.getAttribute("data-index");
+            decreaseQuantity(itemIndex);
+        });
+    });
+
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const itemIndex = this.getAttribute("data-index");
+            removeFromCart(itemIndex);
+        });
+    });
+}
+
+function increaseQuantity(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart[index].quantity += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCheckout();
+}
+
+function decreaseQuantity(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCheckout();
+    }
+}
+
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCheckout();
+}
+
+function updateCheckout() {
+    const checkoutItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemsContainer = document.getElementById("checkout_items");
+    let total_Price = 0;
+
+    itemsContainer.innerHTML = ""; 
+
+    checkoutItems.forEach((item, index) => {
+        let total_Price_item = item.price * item.quantity;
+        total_Price += total_Price_item;
+
+        itemsContainer.innerHTML += `
+            <div class="item_checkout">
+                <img src="${item.img}" alt="">
+                <div class="content">
+                    <h4>${item.name}</h4>
+                    <p class="price_checkout">ر.س ${total_Price_item.toFixed(2)}</p>
+                    <div class="quantity_control">
+                        <button class="decrease_quantity" data-index="${index}">-</button>
+                        <span class="quantity">${item.quantity}</span>
+                        <button class="increase_quantity" data-index="${index}">+</button>
+                    </div>
+                </div>
+                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        `;
+    });
+
+    document.querySelector(".items_total").innerHTML = `ر.س ${total_Price.toFixed(2)}`;
+
+    setupCheckoutButtons();
+}
+
+</script>
+
+<footer id="foot">
+    <div class="container">
+        <div class="big_row">
+            <img class="logo_footer" src="img/IMG_5579.JPG" alt="شعار الموقع">
+            <p>تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية</p>
+
+            <div class="icons_footer">
+                <a href="#"><i class="fa-solid fa-phone"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <h4>أقسام الموقع</h4>
+            <div class="links">
+                <a href="iphone16.html"><i class="fa-solid fa-caret-right"></i> ايفون 16 بانواعه</a>
+                <a href="iphon15.html"><i class="fa-solid fa-caret-right"></i> ايفون 15 بانواعه</a>
+                <a href="iphone14.html"><i class="fa-solid fa-caret-right"></i> ايفون 14 بانواعه</a>
+                <a href="iphone13.html"><i class="fa-solid fa-caret-right"></i> ايفون 13 بانواعه</a>
+                <a href="iphone12.html"><i class="fa-solid fa-caret-right"></i> ايفون 12 بانواعه</a>
+                <a href="watch.html"><i class="fa-solid fa-caret-right"></i> ساعات ابل</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <h4>أقسام الموقع</h4>
+            <div class="links">
+                <a href="AudioDevices.html"><i class="fa-solid fa-caret-right"></i> اجهزه صوت و سماعات</a>
+                <a href="PlayStation.html"><i class="fa-solid fa-caret-right"></i> جهزة بلاي ستيشن</a>
+                <a href="iPad.html"><i class="fa-solid fa-caret-right"></i> ايباد</a>
+                <a href="laptop.html"><i class="fa-solid fa-caret-right"></i> لابتوبات وشاشات</a>
+                <a href="VideoGames.html"><i class="fa-solid fa-caret-right"></i> ألعاب الفيديو</a>
+                <a href="Portablebattery.html"><i class="fa-solid fa-caret-right"></i> بطاريات متنقلة وكيابل</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <h4>خدماتنا</h4>
+            <div class="links">
+                <a href="#"><i class="fa-solid fa-caret-right"></i> مركز الدعم</a>
+                <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                <a href="#"><i class="fa-solid fa-caret-right"></i> سياسة الخصوصية</a>
+                <a href="#"><i class="fa-solid fa-caret-right"></i> المساعدة</a>
+                <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom_footer">
+        <div class="container">
+            <p>&copy; <span>تيم ستور </span> جميع الحقوق محفوظة</p>
+
+            <div class="payment_img">
+                <img src="img/payment_method.png" alt="طرق الدفع">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="whatsapp-chat">
+    <a href="https://wa.me/+966552538392" target="_blank" aria-label="Chat with us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span>محادثة واتساب</span>
+    </a>
+  </div>
+  
+
+   <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- File JS -->
+ 
+  <script src="JS/swiper.js"></script>
+  <script src="JS/items_home.js"></script>
+  <script src="JS/main.js"></script>
+</body>
+</html>
