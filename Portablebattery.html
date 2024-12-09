@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تيم استور</title>
+    <meta name="description" content="تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية">
+    <link rel="icon" href="img/IMG_5579.JPG">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- ملف CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        .swiper-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.swiper-slide {
+  flex: 1 0 20%;
+  max-width: 250px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .swiper-slide {
+    flex: 1 0 30%; 
+  }
+  .swiper-wrapper {
+  justify-content: center;
+}
+}
+
+@media (max-width: 700px) {
+  .swiper-slide {
+    flex: 1 0 45%;
+    max-width: 180px;
+  }
+  .swiper-wrapper {
+  justify-content: center;
+}
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="loader">
+        <i class="fab fa-apple icon"></i>
+      </div>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>عناصر السلة: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+        <div class="items_in_cart" id="cart_items"></div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>الإجمالي</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart btn" id="checkout_button">إتمام الشراء</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">تسوق المزيد</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/IMG_5579.JPG" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="all-categories">كل الاقسام</option>
+                            <option value="iphone-16">ايفون 16 بانواعه</option>
+                            <option value="iphone-15">ايفون 15 بانواعه</option>
+                            <option value="iphone-14">ايفون 14 بانواعه</option>
+                            <option value="iphone-13">ايفون 13 بانواعه</option>
+                            <option value="iphone-12">ايفون 12 بانواعه</option>
+                            <option value="apple-watches">ساعات ابل</option>
+                            <option value="audio-devices">اجهزه صوت و سماعات</option>
+                            <option value="playstation">أجهزة بلاي ستيشن</option>
+                            <option value="laptops-monitors">لابتوبات وشاشات</option>
+                            <option value="ipad">ايباد</option>
+                            <option value="power-banks-cables">بطاريات متنقلة وكيابل</option>
+                            <option value="video-games">ألعاب الفيديو</option>
+                        </select>                        
+                    </div>
+
+                    <input type="text" name="search" id="search" placeholder="ابحث عن منتجات">
+
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="header_icons">
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+
+                    <div class="category_nav">
+
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>تصفح الأقسام</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+
+                        <div class="category_nav_list">
+                            <a href="iphone16.html">ايفون 16 بانواعه</a>
+                            <a href="iphon15.html">ايفون 15 بانواعه</a>
+                            <a href="iphone14.html">ايفون 14 بانواعه</a>
+                            <a href="iphone13.html">ايفون 13 بانواعه</a>
+                            <a href="iphone12.html">ايفون 12 بانواعه</a>
+                            <a href="watch.html">ساعات ابل</a>
+                            <a href="AudioDevices.html">اجهزه صوت و سماعات</a>
+                            <a href="PlayStation.html">أجهزة بلاي ستيشن</a>
+                            <a href="laptop.html">لابتوبات وشاشات</a>
+                            <a href="iPad.html">ايباد</a>
+                            <a href="Portablebattery.html">بطاريات متنقلة وكيابل</a>
+                            <a href="VideoGames.html">ألعاب الفيديو</a>
+                        </div>
+                    </div>
+
+                    <ul class="nav_links">
+
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+
+                        <li class="active"><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#foot">من نحن</a></li>
+                        <li><a href="#foot">اتصل بنا</a></li>
+                        <li><a href="iphone16.html">ايفون 16 بانواعه</a></li>
+                        <li><a href="iphon15.html">ايفون 15 بانواعه</a></li>
+                        <li><a href="watch.html">ساعات ابل</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+        <div class="slider_products slide">
+            <div class="container">
+                <div class="slide_product mySwiper">
+                    <div class="top_slide">
+                        <h2><i class="fa-solid fa-tags"></i>بطاريات متنقلة</h2>
+                    </div>
+        
+                    <div class="products swiper-wrapper">
+
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/837a86c1-d1c9-406a-b86d-910caaa3411d.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل أنكر باور كور سبيد 20000 الجيل الثاني مخرجين بتقنية بي دي أسود
+                            </a></p>
+                            <div class="price">
+                                <p><span>271.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="261">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/da086c9c-1269-47e8-ab5a-9d2d4a238ef4.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل راف باور 26800 بتقنية PD
+                            </a></p>
+                            <div class="price">
+                                <p><span>271.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="262">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/29b221b6-55ad-4215-99fd-06628dc6c514.png" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل أنكر باور كور 10000 الإصدار الثالث بتقنية PD
+                            </a></p>
+                            <div class="price">
+                                <p><span>166.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="263">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/25ab71d5-83f1-4c30-9097-822351122070.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل أنكر بسعة 19000 بتقنية PD وIQ و Hub لنقل البيانات فضي أسود
+                            </a></p>
+                            <div class="price">
+                                <p><span>358.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="264">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/9c1e7a43-3e2d-472e-84b5-7f28964cbcc4.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل زندور بسعة 20000 بتقنية PD و QC3.0 و Hub لنقل البيانات أربع مخارج أبيض X6
+                            </a></p>
+                            <div class="price">
+                                <p><span>399.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="265">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/c220fd3b-d261-4622-bd0f-f4122787f33e.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل زندور بسعة 6700 مخرج واحد أسود A2
+                            </a></p>
+                            <div class="price">
+                                <p><span>173.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="266">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/c3abe577-5fd7-4124-aae8-5d557f411f61.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل زندور بسعة 10000 تايب سي أحمر A3C
+                            </a></p>
+                            <div class="price">
+                                <p><span>160.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="267">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/bd855159-9cb8-41f4-ae45-f09e999a03ed.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل زندور بسعة 26800 تقنية PD أربع مخارج فضي A8PD
+                            </a></p>
+                            <div class="price">
+                                <p><span>381.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="268">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/c4118745-b829-4423-ad14-2c505563e73e.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل زندور بسعة 26800 تقنية QC3.0 أربع مخارج أسود A8
+                            </a></p>
+                            <div class="price">
+                                <p><span>348.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="269">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide product">
+                            <div class="img_product">
+                                <a href="Details.html" class="product-link"><img src="img/products/220044c9-0dd4-4037-9c4a-b5fef5285427.jpg" alt="صورة المنتج 1"></a>
+                            </div>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-alt"></i>
+                            </div>
+                            <p class="name_product"><a href="Details.html" class="product-link">شاحن متنقل مقاوم للماء والصدمات راف باور 20100 أسود PD
+                            </a></p>
+                            <div class="price">
+                                <p><span>270.00 ر.س</span></p>
+                            </div>
+                            <div class="icons">
+                                <span class="btn_add_cart" data-id="270">
+                                    <i class="fa-solid fa-cart-shopping"></i> أضف للسلة
+                                </span>
+                                <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+    <footer id="foot">
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="img/IMG_5579.JPG" alt="شعار الموقع">
+                <p>تيم ستور  هي شركة سعودية رائدة تقدم خدماتها في مجال الاتصالات والهواتف المحمولة منذ 2016 موزع معتمد من شركة آبل في المملكة العربية السعودية</p>
+    
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="iphone16.html"><i class="fa-solid fa-caret-right"></i> ايفون 16 بانواعه</a>
+                    <a href="iphon15.html"><i class="fa-solid fa-caret-right"></i> ايفون 15 بانواعه</a>
+                    <a href="iphone14.html"><i class="fa-solid fa-caret-right"></i> ايفون 14 بانواعه</a>
+                    <a href="iphone13.html"><i class="fa-solid fa-caret-right"></i> ايفون 13 بانواعه</a>
+                    <a href="iphone12.html"><i class="fa-solid fa-caret-right"></i> ايفون 12 بانواعه</a>
+                    <a href="watch.html"><i class="fa-solid fa-caret-right"></i> ساعات ابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>أقسام الموقع</h4>
+                <div class="links">
+                    <a href="AudioDevices.html"><i class="fa-solid fa-caret-right"></i> اجهزه صوت و سماعات</a>
+                    <a href="PlayStation.html"><i class="fa-solid fa-caret-right"></i> جهزة بلاي ستيشن</a>
+                    <a href="iPad.html"><i class="fa-solid fa-caret-right"></i> ايباد</a>
+                    <a href="laptop.html"><i class="fa-solid fa-caret-right"></i> لابتوبات وشاشات</a>
+                    <a href="VideoGames.html"><i class="fa-solid fa-caret-right"></i> ألعاب الفيديو</a>
+                    <a href="Portablebattery.html"><i class="fa-solid fa-caret-right"></i> بطاريات متنقلة وكيابل</a>
+                </div>
+            </div>
+    
+            <div class="row">
+                <h4>خدماتنا</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> مركز الدعم</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الشروط والأحكام</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> سياسة الخصوصية</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> المساعدة</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> الأسئلة الشائعة</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>تيم ستور </span> جميع الحقوق محفوظة</p>
+    
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="طرق الدفع">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+966552538392" target="_blank" aria-label="Chat with us on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+          <span>محادثة واتساب</span>
+        </a>
+      </div>
+
+       <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <!-- File JS -->
+     
+      <!-- <script src="JS/swiper.js"></script> -->
+      <script src="JS/items_home.js"></script>
+      <script src="JS/main.js"></script>
+</body>
+</html>

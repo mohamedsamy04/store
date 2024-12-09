@@ -1133,23 +1133,7 @@ color: var(--color_heading);
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* End Cart */ 
-
-
 
 
 /* checkout page */ 
@@ -1180,7 +1164,6 @@ color: var(--color_heading);
 }
 
 .checkout .ordersummary .items{
-    height: 350px;
     overflow-y: auto;
 }
 
@@ -1265,7 +1248,7 @@ color: var(--color_heading);
     margin-bottom: 20PX;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .checkout .ordersummary .shop_table p{
@@ -1301,6 +1284,158 @@ color: var(--color_heading);
 .checkout .ordersummary .button_div button:hover{
     background: transparent;
     color: var(--main_color);
+}
+
+/* Make the entire section centered on large screens */
+.checkout .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* For screens larger than 1024px */
+@media (min-width: 1024px) {
+    .checkout .ordersummary {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .checkout .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkout .ordersummary {
+        width: 90%;
+    }
+
+    .checkout .ordersummary .items {
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .checkout .ordersummary .item_cart {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border_color);
+    }
+
+    .checkout .ordersummary .item_cart:last-child {
+        border-bottom: 0;
+    }
+
+    .checkout .ordersummary .image_name {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .checkout .ordersummary .item_cart img {
+        width: 70px;
+    }
+
+    .checkout .ordersummary .item_cart h4 {
+        font-size: 14px;
+    }
+
+    .checkout .ordersummary .delete_item {
+        margin-left: auto;
+    }
+
+    .checkout .ordersummary .quantity_control span {
+        min-width: 30px;
+        font-size: 14px;
+    }
+
+    .checkout .ordersummary .quantity_control button {
+        font-size: 16px;
+    }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+    .checkout .ordersummary h1 {
+        font-size: 18px;
+    }
+
+    .checkout .ordersummary .item_cart img {
+        width: 60px;
+    }
+
+    .checkout .ordersummary .item_cart h4 {
+        font-size: 12px;
+    }
+
+    .checkout .ordersummary .quantity_control span {
+        font-size: 12px;
+    }
+
+    .checkout .ordersummary .quantity_control button {
+        font-size: 14px;
+    }
+
+    .checkout .ordersummary .shop_table p,
+    .checkout .ordersummary .shop_table span {
+        font-size: 14px;
+    }
+
+    .checkout .ordersummary .button_div button {
+        font-size: 16px;
+    }
+}
+.checkout .user_inputs .input_group input,
+.checkout .user_inputs .input_group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    outline: none;
+    background: var(--bg_color);
+    color: var(--color_text);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.checkout .user_inputs .input_group select {
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23666666" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+.checkout .user_inputs .input_group input:focus,
+.checkout .user_inputs .input_group select:focus {
+    border-color: var(--main_color);
+}
+
+.checkout .user_inputs .input_group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color_heading);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.checkout .user_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid var(--border_color);
+}
+
+.checkout .user_inputs .input_group select {
+    padding-right: 35px; 
 }
 
 .whatsapp-chat {

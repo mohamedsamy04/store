@@ -101,7 +101,7 @@ function updateCart() {
                 <img src="${item.img}" alt="">
                 <div class="content">
                     <h4>${item.name}</h4>
-                    <p class="price_cart">$${total_Price_item.toFixed(2)}</p>
+                    <p class="price_cart">ر.س${total_Price_item.toFixed(2)}</p>
                     <div class="quantity_control">
                         <button class="decrease_quantity" data-index="${index}">-</button>
                         <span class="quantity">${item.quantity}</span>
@@ -113,7 +113,7 @@ function updateCart() {
         `;
     });
 
-    document.querySelector(".price_cart_toral").innerHTML = `$${total_Price.toFixed(2)}`;
+    document.querySelector(".price_cart_toral").innerHTML = `ر.س${total_Price.toFixed(2)}`;
     document.querySelector(".Count_item_cart").innerHTML = total_count;
     document.querySelector(".count_item_header").innerHTML = total_count;
 
@@ -208,4 +208,4 @@ document.querySelectorAll('.product-link').forEach(link => {
 });
 
 
-
+console.log(JSON.stringify(localStorage).length / 1024 / 1024 + " MB");
