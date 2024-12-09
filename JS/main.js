@@ -1,3 +1,10 @@
+// التأكد من أن cart يتم تحليله بشكل صحيح
+let cart = JSON.parse(localStorage.getItem("cart"));
+
+if (!Array.isArray(cart)) {
+    cart = []; // إذا لم يكن cart مصفوفة، نقوم بتعيينها كمصفوفة فارغة
+}
+
 window.addEventListener("load", function () {
     setTimeout(function () {
         document.querySelector(".loader").style.display = "none";
@@ -27,10 +34,10 @@ function open_Menu() {
     nav_links.classList.toggle("active");
 }
 
-var cart = document.querySelector(".cart");
+var cartElement = document.querySelector(".cart");
 
 function open_close_cart() {
-    cart.classList.toggle("active");
+    cartElement.classList.toggle("active");
 }
 
 const addToCartButtons = document.querySelectorAll(".btn_add_cart");
@@ -67,8 +74,7 @@ addToCartButtons.forEach(button => {
 });
 
 function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    // استخدم cart المشتركة هنا
     const productIndex = cart.findIndex(item => item.id === product.id);
 
     if (productIndex === -1) {
@@ -83,7 +89,6 @@ function addToCart(product) {
 
 function updateCart() {
     const cartItemsContainer = document.getElementById("cart_items");
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     let total_Price = 0;
     let total_count = 0;
@@ -148,14 +153,12 @@ function setupCartButtons() {
 }
 
 function increaseQuantity(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart[index].quantity += 1;
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCart();
 }
 
 function decreaseQuantity(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart[index].quantity > 1) {
         cart[index].quantity -= 1;
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -164,7 +167,6 @@ function decreaseQuantity(index) {
 }
 
 function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const removedItem = cart.splice(index, 1)[0];
     localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -189,7 +191,6 @@ function updateButtonsState(productId) {
 
 updateCart();
 
-
 document.querySelectorAll('.product-link').forEach(link => {
     link.addEventListener('click', function(e) {
         const product = this.closest('.product');  
@@ -206,7 +207,6 @@ document.querySelectorAll('.product-link').forEach(link => {
         localStorage.setItem('productId', productId); 
     });
 });
-
 
 document.querySelector("#checkout_button").addEventListener("click", function (event) {
     localStorage.setItem("cart", JSON.stringify(cart));
