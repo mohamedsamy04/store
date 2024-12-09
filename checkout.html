@@ -125,192 +125,100 @@
         </div>
     </div>
 </header>
+<style>
+
+    .content { flex-grow: 1; }
+    .error-message {
+        color: var(--main_color);
+        font-size: 14px;
+        margin-top: 6.5px;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .error-message.active {
+        opacity: 1;
+    }
+</style>
 
 
 <section class="checkout" dir="rtl">
-<form action="">
-    <div class="container">
-        <div class="ordersummary">
-            <h1>ملخص الطلب</h1>
-            <div class="items">
+    <form id="checkoutForm">
+        <div class="container">
+            <div class="ordersummary">
+                <h1>ملخص الطلب</h1>
+                <div class="items"></div>
+                <div class="bottom_summary">
+                    <div class="shop_table">
+                        <p>الإجمالي :</p>
+                        <span class="total_checkout">ر.س 0.00</span>
+                    </div>
+                    <div class="user_inputs">
+                        <div class="input_group">
+                            <label for="full_name">الاسم الكامل:</label>
+                            <input type="text" id="full_name" name="full_name" placeholder="أدخل اسمك الكامل">
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="input_group">
+                            <label for="whatsapp_number">رقم الواتساب:</label>
+                            <input type="text" id="whatsapp_number" name="whatsapp_number" placeholder="أدخل رقم الواتساب الخاص بك">
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="input_group">
+                            <label for="full_address">العنوان الكامل:</label>
+                            <input type="text" id="full_address" name="full_address" placeholder="أدخل عنوانك الكامل">
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="input_group">
+                            <label for="initial_payment">المقدم:</label>
+                            <input type="number" id="initial_payment" name="initial_payment" readonly>
+                        </div>
+                        <div class="input_group">
+                            <label for="installments">التقسيط (بالشهور):</label>
+                            <select id="installments" name="installments">
+                                <option value="" disabled selected>اختر مدة التقسيط</option>
+                            </select>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="input_group">
+                            <label for="monthly_payment">القسط الشهري:</label>
+                            <input type="number" id="monthly_payment" name="monthly_payment" readonly>
+                        </div>
+                    </div>
+                    <div class="payment_details" style="display: none;">
+                        <div class="input_group">
+                            <label for="card_number">رقم البطاقة:</label>
+                            <input type="text" id="card_number" name="card_number" placeholder="أدخل رقم البطاقة">
+                            <span id="card_number_error" class="error_message"></span>
+                        </div>
+                        <div class="input_group">
+                            <label for="expiry_date">تاريخ البطاقة:</label>
+                            <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY">
+                            <span id="expiry_date_error" class="error_message"></span>
+                        </div>
+                        <div class="input_group">
+                            <label for="cvv">رمز الـ CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="أدخل رمز الـ CVV">
+                            <span id="cvv_error" class="error_message"></span>
+                        </div>
+                        <div class="input_group">
+                            <label for="card_holder">اسم حامل البطاقة:</label>
+                            <input type="text" id="card_holder" name="card_holder" placeholder="أدخل اسم حامل البطاقة">
+                            <span id="card_holder_error" class="error_message"></span>
+                        </div>
+                    </div>
+                    <div class="button_div">
+                        <button type="button" id="previousButton" style="display: none;">السابق</button>
+                        <button type="button" id="submitButton">التالي</button>
+                        <button type="button" id="completeOrderButton" style="display: none;">إتمام الطلب</button>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="bottom_summary">
-                <div class="shop_table">
-                    <p>الإجمالي :</p>
-                    <span class="total_checkout">345.00$</span>
-                </div>
-            
-                <div class="user_inputs">
-                    <div class="input_group">
-                        <label for="full_name">الاسم الكامل:</label>
-                        <input type="text" id="full_name" name="full_name" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    <div class="input_group">
-                        <label for="whatsapp_number">رقم الواتساب:</label>
-                        <input type="text" id="whatsapp_number" name="whatsapp_number" placeholder="أدخل رقم الواتساب الخاص بك" required>
-                    </div>
-                    <div class="input_group">
-                        <label for="full_address">العنوان الكامل:</label>
-                        <input type="text" id="full_address" name="full_address" placeholder="أدخل عنوانك الكامل" required>
-                    </div>
-                    <div class="input_group">
-                        <label for="initial_payment">المقدم:</label>
-                        <input type="number" id="initial_payment" name="initial_payment" placeholder="أدخل مبلغ المقدم" required>
-                    </div>
-                    <div class="input_group">
-                        <label for="installments">التقسيط (بالشهور):</label>
-                        <select id="installments" name="installments" required>
-                            <option value="" disabled selected>اختر مدة التقسيط</option>
-                            <option value="1">شهر واحد</option>
-                            <option value="2">شهرين</option>
-                            <option value="3">3 شهور</option>
-                            <option value="4">4 شهور</option>
-                            <option value="5">5 شهور</option>
-                            <option value="6">6 شهور</option>
-                            <option value="7">7 شهور</option>
-                            <option value="8">8 شهور</option>
-                            <option value="9">9 شهور</option>
-                            <option value="10">10 شهور</option>
-                            <option value="11">11 شهراً</option>
-                            <option value="12">12 شهراً</option>
-                        </select>
-                    </div>
-                    <div class="input_group">
-                        <label for="monthly_payment">القسط الشهري:</label>
-                        <input type="number" id="monthly_payment" name="monthly_payment" placeholder="أدخل مبلغ القسط الشهري" required>
-                    </div>
-                </div>
-                
-            
-                <div class="button_div">
-                    <button type="submit">إتمام الطلب</button>
-                </div>
-            </div>
-            
         </div>
-        <div class="input_info">
-            
-        </div>
-    </div>
-</form>
+    </form>
 </section>
-<script>
-    window.addEventListener("load", function () {
-    const checkoutItems = JSON.parse(localStorage.getItem("cart")) || []; 
-
-    const itemsContainer = document.getElementById("checkout_items");
-    let total_Price = 0;
-
-    checkoutItems.forEach((item, index) => {
-        let total_Price_item = item.price * item.quantity;
-        total_Price += total_Price_item;
-
-        itemsContainer.innerHTML += `
-            <div class="item_checkout">
-                <img src="${item.img}" alt="">
-                <div class="content">
-                    <h4>${item.name}</h4>
-                    <p class="price_checkout">ر.س ${total_Price_item.toFixed(2)}</p>
-                    <div class="quantity_control">
-                        <button class="decrease_quantity" data-index="${index}">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="increase_quantity" data-index="${index}">+</button>
-                    </div>
-                </div>
-                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        `;
-    });
-
-    document.querySelector(".items_total").innerHTML = `ر.س ${total_Price.toFixed(2)}`;
-
-    setupCheckoutButtons();
-});
-
-function setupCheckoutButtons() {
-    const increaseButtons = document.querySelectorAll(".increase_quantity");
-    const decreaseButtons = document.querySelectorAll(".decrease_quantity");
-    const deleteButtons = document.querySelectorAll(".delete_item");
-
-    increaseButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const itemIndex = this.getAttribute("data-index");
-            increaseQuantity(itemIndex);
-        });
-    });
-
-    decreaseButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const itemIndex = this.getAttribute("data-index");
-            decreaseQuantity(itemIndex);
-        });
-    });
-
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const itemIndex = this.getAttribute("data-index");
-            removeFromCart(itemIndex);
-        });
-    });
-}
-
-function increaseQuantity(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart[index].quantity += 1;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCheckout();
-}
-
-function decreaseQuantity(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart[index].quantity > 1) {
-        cart[index].quantity -= 1;
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCheckout();
-    }
-}
-
-function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(index, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCheckout();
-}
-
-function updateCheckout() {
-    const checkoutItems = JSON.parse(localStorage.getItem("cart")) || [];
-    const itemsContainer = document.getElementById("checkout_items");
-    let total_Price = 0;
-
-    itemsContainer.innerHTML = ""; 
-
-    checkoutItems.forEach((item, index) => {
-        let total_Price_item = item.price * item.quantity;
-        total_Price += total_Price_item;
-
-        itemsContainer.innerHTML += `
-            <div class="item_checkout">
-                <img src="${item.img}" alt="">
-                <div class="content">
-                    <h4>${item.name}</h4>
-                    <p class="price_checkout">ر.س ${total_Price_item.toFixed(2)}</p>
-                    <div class="quantity_control">
-                        <button class="decrease_quantity" data-index="${index}">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="increase_quantity" data-index="${index}">+</button>
-                    </div>
-                </div>
-                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        `;
-    });
-
-    document.querySelector(".items_total").innerHTML = `ر.س ${total_Price.toFixed(2)}`;
-
-    setupCheckoutButtons();
-}
-
-</script>
 
 <footer id="foot">
     <div class="container">
@@ -383,11 +291,10 @@ function updateCheckout() {
 
    <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<script src="JS/check.js"></script>
   <!-- File JS -->
  
   <script src="JS/swiper.js"></script>
-  <script src="JS/items_home.js"></script>
   <script src="JS/main.js"></script>
 </body>
 </html>

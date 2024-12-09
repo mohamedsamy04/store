@@ -1,14 +1,13 @@
-// التأكد من أن cart يتم تحليله بشكل صحيح
 let cart = JSON.parse(localStorage.getItem("cart"));
 
 if (!Array.isArray(cart)) {
-    cart = []; // إذا لم يكن cart مصفوفة، نقوم بتعيينها كمصفوفة فارغة
+    cart = []; 
 }
 
 window.addEventListener("load", function () {
     setTimeout(function () {
         document.querySelector(".loader").style.display = "none";
-    }, 800);
+    }, 600);
 
     const addedItems = JSON.parse(localStorage.getItem("addedItems")) || [];
     addedItems.forEach(productId => {
@@ -208,6 +207,6 @@ document.querySelectorAll('.product-link').forEach(link => {
     });
 });
 
-document.querySelector("#checkout_button").addEventListener("click", function (event) {
+function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
-});
+}
