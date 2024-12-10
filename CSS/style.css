@@ -1275,7 +1275,7 @@ color: var(--color_heading);
     border: 2px solid var(--main_color);
     padding: 15px 0;
     outline: none;
-    border-radius: 3px;
+    border-radius: 20px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;

