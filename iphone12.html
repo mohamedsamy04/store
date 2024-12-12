@@ -83,21 +83,21 @@
                 <a href="index.html" class="logo"> <img src="img/IMG_5579.JPG" alt=""></a>
                 <form action="" class="search_box">
                     <div class="select_box">
-                        <select id="category" name="category">
-                            <option value="all-categories">كل الاقسام</option>
-                            <option value="iphone-16">ايفون 16 بانواعه</option>
-                            <option value="iphone-15">ايفون 15 بانواعه</option>
-                            <option value="iphone-14">ايفون 14 بانواعه</option>
-                            <option value="iphone-13">ايفون 13 بانواعه</option>
-                            <option value="iphone-12">ايفون 12 بانواعه</option>
-                            <option value="apple-watches">ساعات ابل</option>
-                            <option value="audio-devices">اجهزه صوت و سماعات</option>
-                            <option value="playstation">أجهزة بلاي ستيشن</option>
-                            <option value="laptops-monitors">لابتوبات وشاشات</option>
-                            <option value="ipad">ايباد</option>
-                            <option value="power-banks-cables">بطاريات متنقلة وكيابل</option>
-                            <option value="video-games">ألعاب الفيديو</option>
-                        </select>                        
+                        <select id="category" name="category" onchange="window.location.href=this.value;">
+                            <option value="index.html">كل الاقسام</option>
+                            <option value="iphone16.html">ايفون 16 بانواعه</option>
+                            <option value="iphon15.html">ايفون 15 بانواعه</option>
+                            <option value="iphone14.html">ايفون 14 بانواعه</option>
+                            <option value="iphone13.html">ايفون 13 بانواعه</option>
+                            <option value="iphone12.html">ايفون 12 بانواعه</option>
+                            <option value="watch.html">ساعات ابل</option>
+                            <option value="AudioDevices.html">اجهزه صوت و سماعات</option>
+                            <option value="PlayStation.html">أجهزة بلاي ستيشن</option>
+                            <option value="laptop.html">لابتوبات وشاشات</option>
+                            <option value="ipad.html">ايباد</option>
+                            <option value="Portablebattery.html">بطاريات متنقلة وكيابل</option>
+                            <option value="VideoGames.html">ألعاب الفيديو</option>
+                        </select>               
                     </div>
 
                     <input type="text" name="search" id="search" placeholder="ابحث عن منتجات">
@@ -447,6 +447,32 @@
                 </div>
             </div>
         </div>    
+        <div class="reviews-section">
+            <h2> آراء العملاء</h2>
+            <div class="reviews-slider" id="reviewsSlider">
+                <div class="review">
+                    <h3>أحمد محمد</h3>
+                    <p>"جودة المنتجات ممتازة وخدمة العملاء رائعة. أنصح الجميع بالشراء من هذا الموقع!"</p>
+                </div>
+                <div class="review">
+                    <h3>سارة علي</h3>
+                    <p>"تجربة تسوق رائعة وأسعار تنافسية. سأعود للشراء مرة أخرى بالتأكيد."</p>
+                </div>
+                <div class="review">
+                    <h3>محمد إبراهيم</h3>
+                    <p>"المنتجات أصلية والتوصيل سريع جدًا. أحببت الموقع كثيرًا."</p>
+                </div>
+                <div class="review">
+                    <h3>نور الهدى</h3>
+                    <p>"موقع رائع جدًا، أحببت التصميم وسهولة التنقل بين الأقسام."</p>
+                </div>
+                <div class="review">
+                    <h3>خالد محسن</h3>
+                    <p>"تعامل رائع ومنتجات تستحق كل قرش. أنصح به بشدة."</p>
+                </div>
+            </div>
+            <div class="dots" id="dots"></div>
+        </div>
     <footer id="foot">
         <div class="container">
             <div class="big_row">

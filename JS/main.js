@@ -210,3 +210,32 @@ document.querySelectorAll('.product-link').forEach(link => {
 function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
+const slider = document.getElementById('reviewsSlider');
+const dotsContainer = document.getElementById('dots');
+const reviews = document.querySelectorAll('.review');
+let currentIndex = 0;
+
+// Create dots
+reviews.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider();
+    });
+    dotsContainer.appendChild(dot);
+});
+
+const updateSlider = () => {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+};
+
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % reviews.length;
+    updateSlider();
+}, 3000);
+
