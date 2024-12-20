@@ -752,6 +752,34 @@ footer  .bottom_footer .payment_img{
 
 /* End Footer */
 
+.cart.empty .items_in_cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.cart.empty .items_in_cart .empty_message {
+    font-size: 22px;
+    color: var(--color_heading);
+    margin-top: 20px;
+}
+
+.cart.empty .items_in_cart .empty_message i {
+    font-size: 80px;
+    color: var(--main_color);
+    margin-bottom: 20px;
+}
+
+.cart.empty .bottom_cart .total {
+    display: none;
+}
+
+.cart.empty .bottom_cart .button_cart {
+    justify-content: center;
+}
+
 
 .cart{
     position: fixed;
@@ -1622,4 +1650,10 @@ color: var(--color_heading);
 .btn-confirm:hover {
     background-color: #e57613 !important;
     border-color: #e57613 !important;
+}
+.new{
+    background: var(--main_color);
+}
+.new i{
+    color: white;
 }

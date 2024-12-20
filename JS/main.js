@@ -73,7 +73,6 @@ addToCartButtons.forEach(button => {
 });
 
 function addToCart(product) {
-    // استخدم cart المشتركة هنا
     const productIndex = cart.findIndex(item => item.id === product.id);
 
     if (productIndex === -1) {
@@ -88,34 +87,46 @@ function addToCart(product) {
 
 function updateCart() {
     const cartItemsContainer = document.getElementById("cart_items");
+    const emptyMessageContainer = document.createElement("div");
+    emptyMessageContainer.classList.add("empty_message");
 
     let total_Price = 0;
     let total_count = 0;
 
     cartItemsContainer.innerHTML = "";
 
-    cart.forEach((item, index) => {
-        let total_Price_item = item.price * item.quantity;
-
-        total_Price += total_Price_item;
-        total_count += item.quantity;
-
-        cartItemsContainer.innerHTML += `
-            <div class="item_cart">
-                <img src="${item.img}" alt="">
-                <div class="content">
-                    <h4>${item.name}</h4>
-                    <p class="price_cart">ر.س${total_Price_item.toFixed(2)}</p>
-                    <div class="quantity_control">
-                        <button class="decrease_quantity" data-index="${index}">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="Increase_quantity" data-index="${index}">+</button>
-                    </div>
-                </div>
-                <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
+    if (cart.length === 0) {
+        emptyMessageContainer.innerHTML = `
+            <i class="fa-solid fa-heart-crack"></i>
+            <p> ! السلة فارغة</p>
         `;
-    });
+        cartItemsContainer.appendChild(emptyMessageContainer);
+        document.querySelector(".cart").classList.add("empty");
+    } else {
+        cart.forEach((item, index) => {
+            let total_Price_item = item.price * item.quantity;
+
+            total_Price += total_Price_item;
+            total_count += item.quantity;
+
+            cartItemsContainer.innerHTML += `
+                <div class="item_cart">
+                    <img src="${item.img}" alt="">
+                    <div class="content">
+                        <h4>${item.name}</h4>
+                        <p class="price_cart">ر.س${total_Price_item.toFixed(2)}</p>
+                        <div class="quantity_control">
+                            <button class="decrease_quantity" data-index="${index}">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="Increase_quantity" data-index="${index}">+</button>
+                        </div>
+                    </div>
+                    <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+            `;
+        });
+        document.querySelector(".cart").classList.remove("empty");
+    }
 
     document.querySelector(".price_cart_toral").innerHTML = `ر.س${total_Price.toFixed(2)}`;
     document.querySelector(".Count_item_cart").innerHTML = total_count;
@@ -239,3 +250,20 @@ setInterval(() => {
     updateSlider();
 }, 3000);
 
+const heartIcons = document.querySelectorAll('.icon_product');
+
+heartIcons.forEach((heartIcon, index) => {
+    if (localStorage.getItem(`isNew_${index}`) === 'true') {
+        heartIcon.classList.add('new');
+    }
+
+    heartIcon.addEventListener('click', function() {
+        if (heartIcon.classList.contains('new')) {
+            heartIcon.classList.remove('new');
+            localStorage.setItem(`isNew_${index}`, 'false');
+        } else {
+            heartIcon.classList.add('new');
+            localStorage.setItem(`isNew_${index}`, 'true');
+        }
+    });
+});

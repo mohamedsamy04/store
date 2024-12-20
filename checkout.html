@@ -143,9 +143,45 @@
     .error-message.active {
         opacity: 1;
     }
+
+.empty-cart {
+    text-align: center;
+    margin: 80px 0;
+    font-family: Arial, sans-serif;
+    color: var(--p_color);
+    direction: rtl;
+}
+
+.empty-cart-icon {
+    font-size: 100px;
+    color: var(--main_color);
+}
+
+.empty-cart-message {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--p_color);
+}
+
+.empty-cart-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--main_color);
+    color: var(--white_color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.empty-cart-button:hover {
+   transform: scale(1.02);
+}
 </style>
 
-
+<div id="cartContainer"></div>
 <section class="checkout" dir="rtl">
     <form id="checkoutForm">
         <div class="container">

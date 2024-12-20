@@ -401,3 +401,26 @@ function removeFromCart(index) {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.reload();
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartContainer = document.getElementById("cartContainer");
+    const checkout = document.querySelector(".checkout");
+
+    if (cart.length === 0) {
+        if (checkout) {
+            checkout.style.display = "none";
+        }
+
+        cartContainer.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-heart-broken empty-cart-icon"></i>
+                <p class="empty-cart-message">السلة فارغة !</p>
+                <button id="goToShop" class="empty-cart-button">اذهب للتسوق</button>
+            </div>
+        `;
+
+        document.getElementById("goToShop").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    }
+});
